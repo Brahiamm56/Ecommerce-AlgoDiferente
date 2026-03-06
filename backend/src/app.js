@@ -16,8 +16,12 @@ const proveedoresRoutes = require('./routes/proveedores');
 const app = express();
 
 // Middlewares globales
+const allowedOrigins = process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',').map(o => o.trim())
+    : ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'];
+
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'], // Vite y otros
+    origin: allowedOrigins,
     credentials: true
 }));
 app.use(express.json());
