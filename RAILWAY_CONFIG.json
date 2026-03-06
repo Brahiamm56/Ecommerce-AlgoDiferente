@@ -1,0 +1,45 @@
+[
+  {
+    "name": "railway.json",
+    "description": "Configuración para Railway deployment",
+    "backend": {
+      "root": "backend",
+      "buildCommand": "npm install",
+      "startCommand": "npm start",
+      "environmentVariables": {
+        "PORT": 3001,
+        "NODE_ENV": "production"
+      },
+      "services": [
+        {
+          "name": "ecommerce-api",
+          "plan": "starter",
+          "region": "us-west"
+        },
+        {
+          "name": "mysql-database",
+          "plan": "starter"
+        }
+      ]
+    },
+    "instructions": [
+      "1. Ir a https://railway.app",
+      "2. Crear New Project > Deploy from GitHub",
+      "3. Conectar repositorio Ecommerce-AlgoDiferente",
+      "4. En Project Settings:",
+      "   - Root Directory: backend",
+      "   - Build Command: npm install",
+      "   - Start Command: npm run start",
+      "5. En Environment Variables, agregar:",
+      "   - PORT=3001",
+      "   - NODE_ENV=production",
+      "   - DATABASE_URL=tu_planetscale_url",
+      "   - JWT_SECRET=tu_valor_aleatorio",
+      "   - MERCADOPAGO_ACCESS_TOKEN=tu_token",
+      "   - WHATSAPP_NUMBER=5491123456789",
+      "   - FRONTEND_URL=https://vercel-url.vercel.app",
+      "6. Deploy y copiar URL pública (ej: random-name.railway.app)",
+      "7. Esa URL irá en VITE_API_URL del frontend"
+    ]
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "frontend/dist",
+  "framework": "vite",
+  "nodeVersion": "18.x",
+
+  "env": {
+    "VITE_API_URL": {
+      "description": "URL del backend en Railway",
+      "example": "https://ecommerce-api-prod.railway.app/api"
+    },
+    "VITE_WHATSAPP_NUMBER": {
+      "description": "Número de WhatsApp de la tienda",
+      "example": "543624012322"
+    },
+    "VITE_STORE_NAME": {
+      "description": "Nombre de la tienda",
+      "example": "Algo Diferente Shoes"
+    }
+  },
+
+  "instructions": [
+    "1. Ir a https://vercel.com",
+    "2. Dashboard > Add New > Project",
+    "3. Import Git Repository > Seleccionar Ecommerce-AlgoDiferente",
+    "4. Configure Project:",
+    "   - Framework Preset: Other",
+    "   - Root Directory: frontend",
+    "   - Build Command: npm run build",
+    "   - Output Directory: dist",
+    "5. Environment Variables:",
+    "   - VITE_API_URL: https://tu-railway-url.railway.app/api",
+    "   - VITE_WHATSAPP_NUMBER: 543624012322",
+    "   - VITE_STORE_NAME: Algo Diferente Shoes",
+    "6. Deploy",
+    "7. En Settings > Domains, agregar dominio personalizado (opcional)"
+  ],
+
+  "domains": {
+    "free": [
+      "nombre-random.vercel.app"
+    ],
+    "custom": [
+      "Comprar dominio en hostinger.com o similar",
+      "Configurar DNS en Vercel"
+    ]
+  }
+}
