@@ -1,0 +1,106 @@
+// Constantes de la aplicación
+export const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '5491234567890';
+export const STORE_NAME = import.meta.env.VITE_STORE_NAME || 'Mi Tienda';
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+// Categorías mock para desarrollo
+export const CATEGORIES = [
+    { id: 1, nombre: 'Todos', slug: 'todos' },
+    { id: 2, nombre: 'Zapatillas', slug: 'zapatillas' },
+    { id: 3, nombre: 'Remeras', slug: 'remeras' },
+    { id: 4, nombre: 'Pantalones', slug: 'pantalones' },
+    { id: 5, nombre: 'Accesorios', slug: 'accesorios' },
+    { id: 6, nombre: 'Buzos', slug: 'buzos' },
+];
+
+// Productos mock para desarrollo
+export const MOCK_PRODUCTS = [
+    {
+        id: 1,
+        nombre: 'Nike Air Max 270',
+        descripcion: 'Zapatillas deportivas con tecnología Air visible. Máxima comodidad y estilo urbano.',
+        precio: 89999.99,
+        precio_descuento: 74999.99,
+        imagen_url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400',
+        stock: 15,
+        id_categoria: 2,
+        destacado: true,
+    },
+    {
+        id: 2,
+        nombre: 'Adidas Ultraboost 22',
+        descripcion: 'Running de alto rendimiento con tecnología Boost.',
+        precio: 129999.99,
+        precio_descuento: null,
+        imagen_url: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=400',
+        stock: 8,
+        id_categoria: 2,
+        destacado: false,
+    },
+    {
+        id: 3,
+        nombre: 'Puma RS-X',
+        descripcion: 'Zapatillas urbanas con diseño retro.',
+        precio: 64999.99,
+        precio_descuento: 54999.99,
+        imagen_url: 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400',
+        stock: 0,
+        id_categoria: 2,
+        destacado: false,
+    },
+    {
+        id: 4,
+        nombre: 'Remera Adidas Originals',
+        descripcion: 'Remera clásica de algodón 100%. Logo Trefoil estampado.',
+        precio: 12999.99,
+        precio_descuento: null,
+        imagen_url: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400',
+        stock: 25,
+        id_categoria: 3,
+        destacado: false,
+    },
+    {
+        id: 5,
+        nombre: 'Remera Nike Dri-FIT',
+        descripcion: 'Remera deportiva con tecnología de absorción de humedad.',
+        precio: 15999.99,
+        precio_descuento: 12999.99,
+        imagen_url: 'https://images.unsplash.com/photo-1562157873-818bc0726f68?w=400',
+        stock: 18,
+        id_categoria: 3,
+        destacado: true,
+    },
+    {
+        id: 6,
+        nombre: 'Jogger Adidas Tiro',
+        descripcion: 'Pantalón deportivo con puños ajustados.',
+        precio: 34999.99,
+        precio_descuento: null,
+        imagen_url: 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400',
+        stock: 12,
+        id_categoria: 4,
+        destacado: false,
+    },
+    {
+        id: 7,
+        nombre: 'Gorra Nike Sportswear',
+        descripcion: 'Gorra ajustable con logo bordado.',
+        precio: 8999.99,
+        precio_descuento: 6999.99,
+        imagen_url: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=400',
+        stock: 30,
+        id_categoria: 5,
+        destacado: false,
+    },
+    {
+        id: 8,
+        nombre: 'Buzo Nike Essential',
+        descripcion: 'Buzo con capucha y bolsillo canguro. Algodón premium.',
+        precio: 45999.99,
+        precio_descuento: null,
+        imagen_url: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400',
+        stock: 10,
+        id_categoria: 6,
+        destacado: true,
+    },
+];
