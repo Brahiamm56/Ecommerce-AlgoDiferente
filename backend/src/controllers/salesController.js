@@ -176,9 +176,9 @@ const getSales = async (req, res, next) => {
         if (search) {
             where[Op.or] = [
                 ...(!isNaN(search) ? [{ id: search }] : []),
-                { notes: { [Op.like]: `%${search}%` } },
-                { client_name: { [Op.like]: `%${search}%` } },
-                { client_location: { [Op.like]: `%${search}%` } }
+                { notes: { [Op.iLike]: `%${search}%` } },
+                { client_name: { [Op.iLike]: `%${search}%` } },
+                { client_location: { [Op.iLike]: `%${search}%` } }
             ];
         }
 

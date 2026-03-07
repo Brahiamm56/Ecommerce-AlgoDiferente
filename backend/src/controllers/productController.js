@@ -33,7 +33,7 @@ const getProducts = async (req, res, next) => {
         }
 
         if (search) {
-            where.nombre = { [Op.like]: `%${search}%` };
+            where.nombre = { [Op.iLike]: `%${search}%` };
         }
 
         // Filtro por categoría (slug)

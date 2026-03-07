@@ -1,19 +1,30 @@
 require('dotenv').config();
-const app = require('../src/app');
-const { sequelize } = require('../src/models');
 
-// Inicializar DB una vez (se cachea entre invocaciones en el mismo contenedor)
-let initialized = false;
+let app;
+try {
+    app = require('../src/app');
+} catch (err) {
+    console.error('[FATAL] Error cargando app:', err);
+    app = (req, res) => res.status(500).json({ error: 'App load failed', detail: err.message });
+}
+
+let dbInitialized = false;
 
 const initDB = async () => {
-    if (initialized) return;
-    await sequelize.authenticate();
-    await sequelize.sync();
-    initialized = true;
-    console.log('DB inicializada');
+    if (dbInitialized) return;
+    try {
+        const { sequelize } = require('../src/models');
+        await sequelize.authenticate();
+        // sync({ force: false }) solo crea tablas si no existen, nunca las borra
+        await sequelize.sync({ force: false });
+        dbInitialized = true;
+        console.log('[DB] Conectado y tablas sincronizadas');
+    } catch (err) {
+        console.error('[DB] Error de conexion:', err.message);
+        // No lanzar el error — la app sigue levantada, el error aparece en los logs
+    }
 };
 
-// Iniciar conexion al arrancar el contenedor (no bloquea la respuesta)
-initDB().catch(err => console.error('Error al inicializar DB:', err.message));
+initDB().catch(err => console.error('[DB] Unhandled init error:', err.message));
 
 module.exports = app;
