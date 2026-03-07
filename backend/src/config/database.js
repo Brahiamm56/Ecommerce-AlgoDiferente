@@ -21,6 +21,8 @@ if (process.env.DATABASE_URL) {
         logging: false,
         define
     });
+} else if (process.env.NODE_ENV === 'production') {
+    throw new Error('DATABASE_URL es requerida en produccion. Configura la variable de entorno en Vercel.');
 } else {
     // Local: SQLite
     const path = require('path');
