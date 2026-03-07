@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently -n backend,frontend -c cyan,magenta \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
     "install:all": "npm --prefix backend install && npm --prefix frontend install",
-    "build": "npm --prefix frontend install && npm --prefix frontend run build"
+    "vercel-build": "cd frontend && rm -rf node_modules && npm install && npm run build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
