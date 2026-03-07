@@ -131,11 +131,13 @@ const createProduct = async (req, res, next) => {
         const files = req.files || {};
 
         if (files['image1'] && files['image1'].length > 0) {
-            finalImageUrl1 = `/uploads/${files['image1'][0].filename}`;
+            const f = files['image1'][0];
+            finalImageUrl1 = f.path || `/uploads/${f.filename}`;
         }
 
         if (files['image2'] && files['image2'].length > 0) {
-            finalImageUrl2 = `/uploads/${files['image2'][0].filename}`;
+            const f = files['image2'][0];
+            finalImageUrl2 = f.path || `/uploads/${f.filename}`;
         }
 
         // Parsear talles
@@ -244,14 +246,16 @@ const updateProduct = async (req, res, next) => {
 
         // Imagen 1
         if (files['image1'] && files['image1'].length > 0) {
-            product.imagen_url = `/uploads/${files['image1'][0].filename}`;
+            const f = files['image1'][0];
+            product.imagen_url = f.path || `/uploads/${f.filename}`;
         } else if (imagen_url !== undefined) {
             product.imagen_url = imagen_url;
         }
 
         // Imagen 2
         if (files['image2'] && files['image2'].length > 0) {
-            product.imagen_url_2 = `/uploads/${files['image2'][0].filename}`;
+            const f = files['image2'][0];
+            product.imagen_url_2 = f.path || `/uploads/${f.filename}`;
         } else if (imagen_url_2 !== undefined) {
             product.imagen_url_2 = imagen_url_2;
         }
