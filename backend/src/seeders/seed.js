@@ -12,7 +12,7 @@ const seedDatabase = async () => {
 
         // Conectar y sincronizar
         await sequelize.authenticate();
-        console.log('✅ Conexión a MySQL establecida');
+        console.log('✅ Conexión a PostgreSQL establecida');
 
         await sequelize.sync({ force: true }); // ⚠️ Esto borra todos los datos
         console.log('✅ Tablas recreadas\n');

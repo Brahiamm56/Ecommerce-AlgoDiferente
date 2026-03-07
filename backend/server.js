@@ -9,7 +9,7 @@ const startServer = async () => {
     try {
         // Probar conexión a la base de datos
         await sequelize.authenticate();
-        console.log('✅ Conexión a MySQL establecida correctamente');
+        console.log('✅ Conexión a PostgreSQL establecida correctamente');
 
         // Migración manual de sale_items para soportar ítems manuales
         try {
