@@ -16,7 +16,7 @@ let storage;
 if (process.env.CLOUDINARY_CLOUD_NAME) {
     // Producción: Cloudinary
     const cloudinary = require('cloudinary').v2;
-    const { CloudinaryStorage } = require('multer-storage-cloudinary');
+    const cloudinaryStorage = require('multer-storage-cloudinary');
 
     cloudinary.config({
         cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -24,13 +24,11 @@ if (process.env.CLOUDINARY_CLOUD_NAME) {
         api_secret: process.env.CLOUDINARY_API_SECRET
     });
 
-    storage = new CloudinaryStorage({
-        cloudinary,
-        params: {
-            folder: 'ecommerce-algo-diferente',
-            allowed_formats: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
-            transformation: [{ width: 800, height: 800, crop: 'limit', quality: 'auto' }]
-        }
+    storage = cloudinaryStorage({
+        cloudinary: cloudinary,
+        folder: 'ecommerce-algo-diferente',
+        allowedFormats: ['jpg', 'jpeg', 'png', 'webp', 'gif'],
+        transformation: [{ width: 800, height: 800, crop: 'limit', quality: 'auto' }]
     });
 
     console.log('[upload] Usando Cloudinary para almacenamiento de imágenes');
