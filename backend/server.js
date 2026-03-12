@@ -1,4 +1,4 @@
-require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
+require('dotenv').config();
 const app = require('./src/app');
 const { sequelize } = require('./src/models');
 
@@ -32,3 +32,4 @@ const startServer = async () => {
 };
 
 startServer();
+

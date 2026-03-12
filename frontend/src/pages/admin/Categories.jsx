@@ -13,7 +13,7 @@ const Categories = () => {
         try {
             setLoading(true);
             const data = await categoryService.getAll();
-            setCategories(data);
+            setCategories(data.categories || []);
         } catch (error) {
             toast.error('Error al cargar categorías');
             console.error(error);

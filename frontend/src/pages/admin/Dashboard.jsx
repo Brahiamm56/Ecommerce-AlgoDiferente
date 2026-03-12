@@ -134,7 +134,7 @@ const Dashboard = () => {
     };
 
     const filteredProducts = products.filter(product =>
-        product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+        (product?.nombre?.toString()?.toLowerCase() || '').includes((searchTerm || '').toLowerCase())
     );
 
     const lowStockProducts = products.filter(p => p.stock > 0 && p.stock <= 5);

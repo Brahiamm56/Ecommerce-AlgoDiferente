@@ -139,8 +139,8 @@ const POS = () => {
         }
         const q = searchQuery.toLowerCase();
         const results = products.filter(p =>
-            p.nombre.toLowerCase().includes(q) ||
-            (p.codigo && p.codigo.toLowerCase().includes(q))
+            (p?.nombre?.toString()?.toLowerCase() || '').includes(q) ||
+            (p?.codigo?.toString()?.toLowerCase() || '').includes(q)
         ).slice(0, 8);
         setFilteredProducts(results);
         setShowSearch(results.length > 0);
